@@ -23,10 +23,19 @@ class LoginForm extends React.Component {
     e.preventDefault();
     console.log("inside handle submit");
     const user = Object.assign({}, this.state);
-    this.props.login(user).then(()=>{
-      this.props.history.push('/');
+    this.props.login(user).then((usr)=>{
+      // this.props.history.push('/home1');
+        console.log("usr" + JSON.stringify(usr));
       // console.log("logged in " +JSON.stringify(this.props));
+
+      this.props.history.push( {
+        pathname: '/dashboard',
+        currentUser: usr.currentUser
+      }
+    );
     });
+
+    
   }
   update(field) {
     
@@ -63,7 +72,7 @@ class LoginForm extends React.Component {
                                   />
                              </div>
                              
-                             <div className="submitBtn" >
+                              <div className="submitBtn" >
                                  <button type="submit" value="Submit">Log In</button>
                              </div>
                       

@@ -1,28 +1,68 @@
 import React from 'react';
 import {NavLink,Link,withRouter} from 'react-router-dom';
 
-const  Header=(routeInfo)=> {
-    return(
-    <div className="navBar">
+
+class Header extends React.Component {
+         
+        constructor(props){
+                super(props)
+        }
+
+        componentDidMount(){
+                console.log("in header" +JSON.stringify(this.props))
+              
+        }
+  render() {
+        let header="";
+        if (this.props.location.hasOwnProperty("currentUser")){
+                      
+                 header = <div className="menuContainer">
+                                <NavLink replace={this.props.location.pathname === '\/'} to={'/'}     className="menus">
+                                        Account
+                                </NavLink>
+                                <Link to={`/login`} className="menus">
+                                        MyTasks
+                                </Link>
+                                <NavLink replace={this.props.location.pathname === '\/'} to={'/'} className="menus">
+                                        Book a Task
+                               </NavLink>
+                               <NavLink replace={this.props.location.pathname === '\/'} to={'/'} className="menus">
+                                        Get $10
+                               </NavLink>
+                         </div>
+
+        }else{
+                 header=  <div className="menuContainer">
+                                <NavLink replace={this.props.location.pathname === '\/'} to={'/'}     className="menus">
+                                        Become a Tasker
+                                </NavLink>
+                                <Link to={`/login`} className="menus">
+                                        Login
+                                </Link>
+                                <NavLink replace={this.props.location.pathname === '\/'} to={'/'} className="menus">
+                                        Services
+                               </NavLink>
+                         </div>
+                        
+                
+        }
+        console.log("print header" +header);
+    return (
+        
+        
+         <div className="navBar">
         
                <div className="navContainer">
-                    <NavLink replace={routeInfo.location.pathname === '\/'}  to={`/`}  className="logo">
+                    <NavLink replace={this.props.location.pathname === '\/'}  to={`/`}  className="logo">
                             <span className="logoPart1" >Task </span> <span className="logoPart2">  Rabbit </span>
                     </NavLink>
-                    <div className="menuContainer">
-                            <NavLink replace={routeInfo.location.pathname === '\/'} to={'/'}     className="menus">
-                                    Become a Tasker
-                            </NavLink>
-                            <Link to={`/login`} className="menus">
-                                    Login
-                            </Link>
-                            <NavLink replace={routeInfo.location.pathname === '\/'} to={'/'} className="menus">
-                                    Services
-                            </NavLink>
-                    </div>
+                    {header}
                </div>
-    </div>
-    );
-};
+          </div>
+    )
+  }
+}
+
+
 
 export default withRouter(Header)
