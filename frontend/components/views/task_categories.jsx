@@ -1,11 +1,14 @@
 import React from 'react';
 
 
-const TaskCategories = ({ category }) => {
+const TaskCategories = ({ category,className }) => {
     return (
-        <li>    
-            {category.name }
-        </li>
+            
+                 <button  className={className} >
+                     {category.name }
+                 </button>
+                  
+           
     );
 };
 

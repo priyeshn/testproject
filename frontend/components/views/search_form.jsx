@@ -11,23 +11,66 @@ export default class search extends React.Component {
     this.props.getTaskCategories();
   }
   render() {
-
+   
     console.log("this.props" + JSON.stringify(this.props.categories))
-    const categories = this.props.categories.map(category => {
-        return (
-          <TaskCategories
-            key={category.id}
-            category={category}
-          />
-        );
+    const categoriesSet1 = this.props.categories.map(category => {
+      
+          if ((category.name.startsWith('Mounting')) ||
+              (category.name.startsWith('Moving'))  ||
+              (category.name.startsWith('Furniture')) )
+            {
+            return   (
+              <TaskCategories
+                key={category.id}
+                category={category}
+                className="categoryBtn1"
+
+              />
+              );
+          }
+         
+      });
+
+      const categoriesSet2 = this.props.categories.map(category => {
+      
+        if ((category.name.startsWith('Home')) ||
+            (category.name.startsWith('General'))  ||
+            (category.name.startsWith('Heavy')) )
+          {
+            return   (
+              <TaskCategories
+                key={category.id}
+                category={category}
+                className="categoryBtn2"
+
+              />
+              );
+          }
+         
       });
     
-    console.log("inital"  +JSON.stringify(this.props.categories))
     return (
-      <div>
-        <h1> in Search container </h1>
-        {categories}
-      </div>
+       <div>
+          <div className="mainTitle">
+               The convenient & affordable way
+               <br/>
+                to get things done around the home
+                <div className="subTitle">
+                 Choose from over 140,000 vetted Taskers for help without breaking the bank.
+                </div>
+          </div>
+          <div className="taskCategoryContainer"  >
+                
+                   {categoriesSet1}
+                   <br/>
+                   {categoriesSet2}
+                 
+          </div>
+          <div className="searchContainer"  >
+          < input type="search" className="search" placeholder="Need Somthing different?" />
+          </div>
+        </div>
+     
     )
   }
 }

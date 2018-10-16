@@ -1,0 +1,57 @@
+@import "variables";
+html {
+    font-size: 16px;
+    font-family: "Proxima", Arial, Helvetica, sans-serif;
+}
+body{
+    color: #242a30;
+   
+   
+    
+}
+.mainTitle{
+    position: relative;
+    top:10vh;
+    line-height: 1.4;
+    letter-spacing: 4px;
+    text-align: center;
+    font-size:2.4rem;
+    color:#282828
+     ;
+}
+.subTitle{
+    line-height: 1.4;
+    position: relative;
+    top:10vh;
+    text-align: center;
+    font-size:1.5rem;
+    color:#282828
+     ;
+}
+.searchContainer{
+    display:flex;
+    height:100vh;
+    width:100wh;
+}
+
+ 
+.search{
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:34vh;
+    height:45px;
+    width:620px;
+    border:1px solid lightgray;
+    font-size:1rem;
+ 
+    padding-left: 40px;
+    padding-top:25px; 
+    padding-bottom:25px;
+    border-radius: 5px;
+    background-image: url("/assets/search1.png");
+    background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    background-position: left;
+    
+ 
+}
