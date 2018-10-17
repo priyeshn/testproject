@@ -53,9 +53,12 @@ class Header extends React.Component {
          <div className="navBar">
         
                <div className="navContainer">
+                     <div className="icon">
+                     </div>
                     <NavLink replace={this.props.location.pathname === '\/'}  to={`/`}  className="logo">
-                            <span className="logoPart1" >Task </span> <span className="logoPart2">  Rabbit </span>
-                    </NavLink>
+                            <p className="logoPart1" >Task<span className="logoPart2">Rabbit</span></p> 
+                          
+                     </NavLink>
                     {header}
                </div>
           </div>

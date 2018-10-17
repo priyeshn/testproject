@@ -1,5 +1,6 @@
 import React  from 'react'
 import TaskCategories from './task_categories';
+import TaskImages from './task_images'
 
 export default class search extends React.Component {
   
@@ -13,12 +14,24 @@ export default class search extends React.Component {
   render() {
    
     console.log("this.props" + JSON.stringify(this.props.categories))
+    const imagesBtns = this.props.categories.map(category=>{
+
+      if (category.hasOwnProperty("photoUrl")){
+      
+          return category.photoUrl
+      }
+
+    });
+    let picMoving="";
+
+    console.log("imagesBtns " +imagesBtns[0]);
     const categoriesSet1 = this.props.categories.map(category => {
       
           if ((category.name.startsWith('Mounting')) ||
               (category.name.startsWith('Moving'))  ||
               (category.name.startsWith('Furniture')) )
             {
+            
             return   (
               <TaskCategories
                 key={category.id}
@@ -50,7 +63,7 @@ export default class search extends React.Component {
       });
     
     return (
-       <div>
+       <div className="searchMain">
           <div className="mainTitle">
                The convenient & affordable way
                <br/>
@@ -60,15 +73,16 @@ export default class search extends React.Component {
                 </div>
           </div>
           <div className="taskCategoryContainer"  >
-                
                    {categoriesSet1}
                    <br/>
-                   {categoriesSet2}
-                 
+                   {categoriesSet2}  
           </div>
+
+        
           <div className="searchContainer"  >
           < input type="search" className="search" placeholder="Need Somthing different?" />
           </div>
+          <TaskImages />
         </div>
      
     )
