@@ -51,11 +51,16 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="loginFormContainer" >
+              
               <form className="loginForm" onSubmit={this.handleSubmit} >
-                  <div className="loginContainer" >
+                     
+                    <div className="loginContainer" >
+                      
                               <div className="title" >
-                               <span className="logoPart1" >Task </span> <span className="logoPart2">  Rabbit </span>
-                              </div>
+                              
+                              <p className="logoPart1" >
+                              <img   src="/assets/rabbiticon.png" />Task<span className="logoPart2">Rabbit</span></p> 
+                   </div>
                              <div className="email">
                                   <label  >Email Address</label><br/>
                                   <input   type="text"      
